@@ -11,6 +11,5 @@ using std::endl;
 
 int main()
 {
-    std::cout << "Hello World!\n";1
+	cout << "Hello World!\n";
 }
-
