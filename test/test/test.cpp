@@ -10,8 +10,7 @@ using std::string;
 
 int main()
 {
-    string thing = "ablp";
-    int n = 0b11;
-    cout << (thing.at(0) > thing.at(1));
+	string a = "";
+	cout << "this" << a.size() << "is";
 }
 
