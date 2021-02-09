@@ -2,7 +2,9 @@
 * filename: names.cpp
 * author:   Nick Wirak
 * date:     2/8/2021
-* summary:  write stuff
+* summary:  Simple demonstration of the usage of the functions required
+*			for hw2. Calling functions with minimal supporting user 
+*			interaction.
 */
 
 #include <iostream>

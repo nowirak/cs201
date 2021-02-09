@@ -2,7 +2,17 @@
 * filename: funcs.hpp
 * author:   Nick Wirak
 * date:     2/8/2021
-* summary:  write stuff
+* summary:	Function declarations file for names.cpp.
+* 
+*	InputName: Prompts the user individually to input 10 different names.
+* 
+*	DoesNameExist: Compares a single name(string) with the entries in a 
+*		list of names(strings). At least one match returns TRUE.
+*
+*	PrintNames: Prints a list of names(or strings), each on its own line.
+* 
+*	SortNames: Alphabetically sorts a list of names(or strings) using 
+*		ASCII codes. Acts on the original list.
 */
 
 #ifndef FUNCS_HPP

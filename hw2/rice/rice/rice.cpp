@@ -2,7 +2,13 @@
 * filename: names.cpp
 * author:   Nick Wirak
 * date:     1/29/2021
-* summary:  write stuff
+* summary:  Determines using algorithm how many squares are needed to
+*           hold at least 1e3, 1e6, and 1e9 grains of rice for the chessboard
+*           rice story.
+* 
+*           Provides output for a developer to view that can be used to 
+*           (by manual interation) determine the squares on the previous chessboard
+*           calculation at which overflow occurs for int and double data types.
 */
 
 #include <iostream>
