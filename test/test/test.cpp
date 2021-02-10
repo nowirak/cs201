@@ -11,6 +11,13 @@ using std::string;
 int main()
 {
 	string a = "";
-	cout << "this" << a.size() << "is";
+
+	for (int i = 0; i < 5; i++) {
+		cout << "Enter: ";
+		getline(cin, a);
+		cout << a << endl;
+	}
+
+	return 0;
 }
 
