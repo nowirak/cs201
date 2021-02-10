@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 using std::cout;
 using std::endl;
 using std::cin;
@@ -10,14 +11,12 @@ using std::string;
 
 int main()
 {
-	string a = "";
+	double n;
 
-	for (int i = 0; i < 5; i++) {
-		cout << "Enter: ";
-		getline(cin, a);
-		cout << a << endl;
-	}
+	n = 1e-9;
 
-	return 0;
+	cout.precision(17);
+	cout << n;
+
 }
 
