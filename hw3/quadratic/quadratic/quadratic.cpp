@@ -34,8 +34,7 @@ inline void printRoots(const double& a, const double& b, const double& c) {
 }
 
 //Evaluates ax^2+bx+c at the chosen root. Choose roots with n = 1 or -1.
-inline double test(const double& a, const double& b, const double& c, const int& n) {
-    double root = root(a, b, c, n);
+inline double test(const double& a, const double& b, const double& c, const double root) {
     return a* root* root + b * root + c;
 }
 
@@ -48,6 +47,10 @@ int main()
     b = -5;
     c = 5;
 
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl << endl;
+
     printRoots(a, b, c);    //print roots
 
     cout << endl;
@@ -57,12 +60,12 @@ int main()
     cout << endl;
 
     //test pass/fail notification by root
-    if (abs(test(a,b,c,1)) < error)
+    if (abs(test(a,b,c,root(a,b,c,1))) < error)
         cout << "root 1 test: pass" << endl;
     else
         cout << "root 1 test: fail" << endl;
 
-    if (abs(test(a,b,c,-1)) < error)
+    if (abs(test(a,b,c,root(a,b,c,-1))) < error)
         cout << "root 2 test: pass" << endl;
     else
         cout << "root 2 test: fail" << endl;
@@ -70,8 +73,8 @@ int main()
     cout << endl;
 
     //report of actual test error
-    cout << "root 1 error: " << abs(test(a,b,c,1)) << endl;
-    cout << "root 2 error: " << abs(test(a,b,c,-1)) << endl;
+    cout << "root 1 error: " << test(a,b,c,root(a,b,c,1)) << endl;
+    cout << "root 2 error: " << test(a,b,c,root(a,b,c,-1)) << endl;
 
     return 0;
 }
