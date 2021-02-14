@@ -1,8 +1,10 @@
 /**
-* filename: boxer.hpp
-* author:   Nick Wirak
-* date:     2/9/2021
-* summary:  start
+ filename:	boxer.hpp
+ author:	Nick Wirak
+ date:		2/9/2021
+ summary:	boxprint(), "boxprint.cpp"
+				Function takes a string and positive integer. Prints a box of asterisks
+				around the string.
 */
 
 #ifndef BOXER_HPP
