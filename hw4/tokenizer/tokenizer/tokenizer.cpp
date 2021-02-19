@@ -71,7 +71,7 @@ void AnalyzeTokens(const std::vector<std::string>& tokens) {
 		}
 
 		
-		for (int i = 1; i < m.size(); i++) {
+		for (int i = 0; i < m.size(); i++) {
 			if (m.at(i) != '_') {
 				if (m.at(i) < 'A' || m.at(i) > 'Z') {
 					if (m.at(i) < 'a' || m.at(i) > 'z') {
