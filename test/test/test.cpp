@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 using std::cout;
@@ -11,12 +12,20 @@ using std::string;
 
 int main()
 {
-	double n;
 
-	n = 1e-9;
+    std::string stringvalues = "125 320 512 750 333";
+    getline(cin, stringvalues);
+    std::istringstream iss (stringvalues);
 
-	cout.precision(17);
-	cout << n;
+    string val;
+    iss >> val;
 
+    cout << bool (iss >> val);
+
+    for (int i = 1; i < 6; i++) {
+        cout << val << endl;
+        iss >> val;
+    }
+
+    return 0;
 }
-
