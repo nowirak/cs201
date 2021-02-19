@@ -2,19 +2,80 @@
 //
 
 #include <iostream>
+#include <vector>
+using namespace std;
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::vector<char> number{ '1','2','3','4' };
+    std::string input;
+    int bulls;
+    int cows;
+    bool isInt;
+
+    do {
+        cout << "Enter four positive digits to guess," << endl;
+        cout << "   or a negative number to show solution: ";
+        cin >> input;
+
+        isInt = true;
+        bulls = 0;
+        cows = 0;
+        
+        if (input.front() == '-') {
+            if (input.at(1) == '0') {
+                cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+                continue;
+            }
+            for (int i = 1; i < input.size(); i++) {
+                if (input.at(i) < '0' || input.at(i) > '9') {
+                    isInt = false;
+                    break;
+                }
+            }
+            if (isInt == true) {
+                cout << endl << "Solution: " << number.at(0) << number.at(1)
+                    << number.at(2) << number.at(3) << endl;
+                break;
+            }
+        }
+
+        if (input.size() != 4) {
+            cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+            continue;
+        }
+
+        for (int i = 0; i < input.size(); i++) {
+            if (input.at(i) < '0' || input.at(i) > '9') {
+                cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+                isInt = false;
+                break;
+            }
+            for (int j = 0; j < number.size(); j++) {
+                if (input.at(i) == number.at(j)) {
+                    if (i == j)
+                        bulls++;
+                    else
+                        cows++;
+                }
+            }
+        }
+
+        if (isInt == false)
+            continue;
+        else if (bulls == 4) {
+            cout << endl << "Correct." << endl;
+            break;
+        }
+        else {
+            cout << endl << "Bulls: " << bulls << endl;
+            cout << "Cows: " << cows << endl << endl;
+        }
+
+    } while (true);
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
