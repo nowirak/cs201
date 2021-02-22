@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="fifo-lifo.cpp" />
+    <ClCompile Include="fifo_lifo_test.cpp" />
+    <ClCompile Include="funcs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funcs.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
