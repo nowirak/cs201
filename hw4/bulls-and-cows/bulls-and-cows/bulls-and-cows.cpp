@@ -1,5 +1,9 @@
-// bulls-and-cows.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/**
+ filename:	tokenizertest.cpp
+ author:	Nick Wirak
+ date:		2/22/2021
+ summary:	
+*/
 
 #include <iostream>
 #include <vector>
