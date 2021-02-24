@@ -33,12 +33,6 @@ int main() {
 		count2 = StringToTokensWS(str, tokens);
 		count = count + count2;
 
-		//
-		std::cout << std::endl;
-		for (auto m : tokens) {
-			std::cout << m << std::endl;
-		}
-
 		if (count2 == 2) {
 			if (tokens.at(tokens.size() - 2) == "end" || tokens.at(tokens.size() - 2) ==
 				"End" || tokens.at(tokens.size() - 2) == "END") {
