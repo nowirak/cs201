@@ -84,6 +84,7 @@ void AnalyzeTokens(const std::vector<std::string>& tokens) {
 			}
 			if (test == true) {
 				std::cout << "[integer]" << "         " << "\"" << m << "\"" << std::endl;
+				continue;
 			}
 		}
 
