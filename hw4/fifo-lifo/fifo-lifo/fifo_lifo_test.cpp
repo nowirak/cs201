@@ -1,5 +1,13 @@
-// fifo-lifo.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/**
+ filename:	fifo_lifo_test.cpp
+ author:	Nick Wirak
+ date:		2/23/2021
+ summary:	The user is given a vector as a container to push and pop strings 
+            from. The user can switch between fifo and lifo modes at any time, 
+            and this will affect which vector element is popped. The user can print 
+            their container at any time, and test the functionality of the built-in
+            fifo an lifo modes of operation at any time.
+*/
 
 #include "funcs.hpp"
 #include <iostream>
@@ -7,8 +15,9 @@ using namespace std;
 
 int main()
 {
+    //Program and user instructions outline printout.
     cout << "You have a container, and can push and pop strings to/from it." << endl << endl;
-    cout << "Commands:" << endl;
+    cout << "Commands (input without colon):" << endl;
     cout << "   fifo:          Select and the fifo routine. Lifo is default." << endl;
     cout << "   lifo:          Select and the lifo routine. Lifo is default." << endl;
     cout << "   push \"string\": Push a string to the container (put string inside" << endl;
@@ -23,9 +32,10 @@ int main()
     bool fifoLifo = true;       // false = fifo mode , true = lifo mode
     
     do {
-        cout << "input: ";
+        cout << "input: ";      //Acquire user instruction.
         getline(cin, input);
 
+        //Read and decipher instructions, acting accordingly.
         if (input == "fifo") {
             fifoLifo = false;
             cout << "*fifo function" << endl;
@@ -66,9 +76,8 @@ int main()
                 cout << "***The container is empty." << endl;
             }
             else {
-                cout << endl;
                 PrintContainer(container);
-                cout << endl << endl;
+                cout << endl;
             }
             continue;
         }
