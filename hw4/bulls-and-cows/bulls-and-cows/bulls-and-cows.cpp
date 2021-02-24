@@ -44,11 +44,13 @@ int main()
         //is checked to force the entry of a valid negative number.
         if (input.front() == '-') {
             if (input.size() == 1) {
-                cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+                cout << endl << "***You did not enter four digits or a negative " << 
+                    "number.***" << endl << endl;
                 continue;
             }
             if (input.at(1) == '0') {
-                cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+                cout << endl << "***You did not enter four digits or a negative " << 
+                    "number.***" << endl << endl;
                 continue;
             }
             for (int i = 1; i < input.size(); i++) {
@@ -67,7 +69,8 @@ int main()
         //After checking for a negative number, any other valid input must be 
         //4 digits in length.
         if (input.size() != 4) {
-            cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+            cout << endl << "***You did not enter four digits or a negative number.***" 
+                << endl << endl;
             continue;
         }
 
@@ -77,7 +80,8 @@ int main()
         //from the entry.
         for (int i = 0; i < input.size(); i++) {
             if (input.at(i) < '0' || input.at(i) > '9') {
-                cout << endl << "***You did not enter four digits or a negative number.***" << endl << endl;
+                cout << endl << "***You did not enter four digits or a negative number.***" 
+                    << endl << endl;
                 isInt = false;
                 break;
             }

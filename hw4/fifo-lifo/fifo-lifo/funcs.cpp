@@ -84,7 +84,8 @@ bool TestFifo() {
 
 	//Read instruction and push string if appropriate.
 	for (int i = 0; i < 4; i++) {
-		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" && testPushSeq.at(i).back() == '"') {
+		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" && 
+				testPushSeq.at(i).back() == '"') {
 			FifoPush(storage, testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
 		}
 		else {
@@ -123,7 +124,8 @@ bool TestLifo() {
 
 	//Read instruction and push string if appropriate.
 	for (int i = 0; i < 4; i++) {
-		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" && testPushSeq.at(i).back() == '"') {
+		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" && 
+				testPushSeq.at(i).back() == '"') {
 			LifoPush(storage, testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
 		}
 		else {
