@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7774fa45-9fff-42e3-9a01-c70e9eb286f4}</ProjectGuid>
-    <RootNamespace>lab5</RootNamespace>
+    <ProjectGuid>{534298a4-48f8-42fa-8882-ce551027ae3d}</ProjectGuid>
+    <RootNamespace>hangman</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>lab05</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -140,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="lab5.cpp" />
+    <ClCompile Include="funcs.cpp" />
+    <ClCompile Include="hangman.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funcs.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
