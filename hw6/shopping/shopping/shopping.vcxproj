@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="funcs.cpp" />
     <ClCompile Include="shopping.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funcs.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
