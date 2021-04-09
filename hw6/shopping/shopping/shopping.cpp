@@ -10,7 +10,8 @@ using std::cin;
 using std::map;
 #include <string>
 using std::string;
-#include <algorithm>
+#include <sstream>
+using std::istringstream;
 
 #include "funcs.hpp"
 
@@ -36,29 +37,36 @@ int main()
     cout << "   " << "Type 'remove' to remove items from cart." << endl;
     cout << "   " << "Type 'cart'   to print and review cart." << endl;
     cout << "   " << "Type 'exit'   to exit the program." << endl;
-
     cout << endl;
-    
+   
+
+    istringstream istream;
     string user;
+    string user2;
     int quant;
-    //map<string, Record>::iterator it;
     while (true) {
         cout << "command> ";
-        cin >> user;
+        getline(cin, user);
         if (user == "add") {
             cout << "   " << "item> ";
-            cin >> user;
+            getline(cin, user);
             if (inventory.count(user) == 0) {
                 cout << "***Error: '" << user << "' is not a valid item." << endl;
             }
             else {
                 cout << "   " << "quantity> ";
-                cin >> quant;
-                if (quant < 0) {
+                getline(cin, user2);
+                istream.clear();
+                istream.str(user2);
+                istream >> quant;
+                if (!istream) {
+                    cout << "***Error: " << user2 << "' is not a valid quantity to add." << endl;
+                }
+                else if (quant < 0) {
                     cout << "***Error: '" << quant << "' is not a valid quantity to add." << endl;
                 }
                 else if (quant > inventory[user].units) {
-                    cout << "***Error: There is not enough inventory to add " << quant << endl;
+                    cout << "***Error: There is not enough inventory to add " << quant << " items." << endl;
                 }
                 else {
                     if (cart.count(user) == 0) {
@@ -75,14 +83,20 @@ int main()
         }
         else if (user == "remove") {
             cout << "   " << "item> ";
-            cin >> user;
+            getline(cin, user);
             if (cart.count(user) == 0) {
                 cout << "***Error: '" << user << "' is not an item in your cart." << endl;
             }
             else {
                 cout << "   " << "quantity> ";
-                cin >> quant;
-                if (quant < 0) {
+                getline(cin, user2);
+                istream.clear();
+                istream.str(user2);
+                istream >> quant;
+                if (!istream) {
+                    cout << "***Error: '" << user2 << "' is not a valid quantity to remove." << endl;
+                }
+                else if (quant < 0) {
                     cout << "***Error: '" << quant << "' is not a valid quantity to remove." << endl;
                 }
                 else if (quant > cart[user].units) {
@@ -95,10 +109,13 @@ int main()
                 }
             }
             cout << endl;
+            if (cart[user].units == 0) {
+                cart.erase(user);
+            }
         }
         else if (user == "cart") {
-            if (cart.begin()++ == cart.end()) {     //or can use std::advance(it, 1) to add 1 to iterator
-                cout << "Your cart is empty." << endl;
+            if (cart.size() == 0) {     //or can use std::advance(it, 1) to add 1 to iterator
+                cout << "Your cart is empty." << endl << endl;
             }
             else {
                 cout << endl;
