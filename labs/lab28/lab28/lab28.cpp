@@ -2,9 +2,26 @@
 //
 
 #include <iostream>
+using std::cout;
+using std::endl;
+#include <fstream>
+using std::ofstream;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    ofstream fout("testThis.txt");
+    if (!fout) {
+        cout << "Error opening file." << endl;
+        return 1;
+    }
+    for (int i = 0; i < 10; i++) {
+        fout << "Hello." << endl;
+        if (!fout) {
+            cout << "Error writing to file." << endl;
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
