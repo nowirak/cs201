@@ -82,14 +82,17 @@ int main()
                 istream >> quant;
                 //Determine subcommand validity.
                 if (!istream) {
-                    cout << "***Error: " << user2 << "' is not a valid quantity to add." << endl;
+                    cout << "***Error: " << user2 << "' is not a valid quantity to add.";
+                    cout << endl;
                 }
                 else if (quant < 0) {
-                    cout << "***Error: '" << quant << "' is not a valid quantity to add." << endl;
+                    cout << "***Error: '" << quant << "' is not a valid quantity to add.";
+                    cout << endl;
                 }
                 //Check if store has items in specified amount in stock.
                 else if (quant > inventory[user].units) {
-                    cout << "***Error: There is not enough inventory to add " << quant << " items." << endl;
+                    cout << "***Error: There is not enough inventory to add " << quant;
+                    cout << " items." << endl;
                 }
                 //Add specified store items to user cart.
                 else {
@@ -122,10 +125,12 @@ int main()
                 istream >> quant;
                 //Determine subcommand validity.
                 if (!istream) {
-                    cout << "***Error: '" << user2 << "' is not a valid quantity to remove." << endl;
+                    cout << "***Error: '" << user2 << "' is not a valid quantity to remove.";
+                    cout << endl;
                 }
                 else if (quant < 0) {
-                    cout << "***Error: '" << quant << "' is not a valid quantity to remove." << endl;
+                    cout << "***Error: '" << quant << "' is not a valid quantity to remove.";
+                    cout << endl;
                 }
                 else if (quant > cart[user].units) {
                     cout << "***Error: You do not have enough items in your cart to remove ";
@@ -144,7 +149,7 @@ int main()
         }
         //Print user cart.
         else if (user == "cart") {
-            if (cart.size() == 0) {     //or can use std::advance(it, 1) to add 1 to iterator
+            if (cart.size() == 0) {  //or can use std::advance(it, 1) to add 1 to iterator
                 cout << "Your cart is empty." << endl << endl;
             }
             else {

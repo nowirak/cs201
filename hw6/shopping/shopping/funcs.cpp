@@ -60,7 +60,8 @@ void printInventory(const map<string, Record>& inventory) {
 		for (int i = 0; i < item_size - p.first.size() + item_pad; i++) {
 			cout << " ";
 		}
-		cout << std::fixed << std::right << std::setw(13) << std::setprecision(2) << p.second.unitPrice;
+		cout << std::fixed << std::right << std::setw(13) << std::setprecision(2);
+		cout << p.second.unitPrice;
 		cout << endl;
 	}
 
@@ -99,11 +100,13 @@ void printCart(const map<string, Record>& cart) {
 		for (int i = 0; i < item_size - p.first.size() + item_pad; i++) {
 			cout << " ";
 		}
-		cout << std::fixed << std::right << std::setw(7) << std::setprecision(0) << p.second.units;
+		cout << std::fixed << std::right << std::setw(7) << std::setprecision(0);
+		cout << p.second.units;
 		for (int i = 0; i < item_size - 7 + item_pad; i++) {
 			cout << " ";
 		}
-		cout << std::fixed << std::right << std::setw(13) << std::setprecision(2) << p.second.unitPrice;
+		cout << std::fixed << std::right << std::setw(13) << std::setprecision(2);
+		cout << p.second.unitPrice;
 		cout << endl;
 	}
 	for (int i = 0; i < 2 * item_size + 2 * item_pad + 14 + item_pad; i++) {
@@ -120,6 +123,7 @@ void printCart(const map<string, Record>& cart) {
 		cost.at(i) = p.second.unitPrice * p.second.units;
 		i++;
 	}
-	cout << std::fixed << std::right << std::setw(13) << std::setprecision(2) << std::accumulate(cost.begin(),cost.end(), 0.0);
+	cout << std::fixed << std::right << std::setw(13) << std::setprecision(2);
+	cout << std::accumulate(cost.begin(), cost.end(), 0.0);
 	cout << endl;
 }
