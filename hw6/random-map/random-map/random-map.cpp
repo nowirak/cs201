@@ -1,4 +1,17 @@
+/**
+ filename:	random-map.cpp
+ author:	Nick Wirak
+ date:		4/09/2021
+ summary:	This program prints out 3 probability distributions: 1) a uniform 
+			distribution on integers, 2) a normal distribution rounded to integers, 
+			3) a uniform distribution on integers. The range of the distribution is
+			specified in the source code by the variables 'first' and 'last'. The 
+			standard deviation of the normal distribution is set to accomodate the 
+			range specified. The two uniform distributions are produced using 
+			different functions. There is no user interface, and the program serves
+			to generate distributions only for the purposes of their visualization.
 
+*/
 
 #include <iostream>
 #include <iomanip>
@@ -10,41 +23,8 @@ using std::map;
 #include <cstdlib>
 using std::rand;
 
-int RandomBetweenU(int first, int last) {
-	// Seed with a real random value, if available
-	std::random_device r;
+#include "funcs.hpp"
 
-	// Choose a random number
-	std::default_random_engine e1(r());
-	std::uniform_int_distribution<int> uniform_dist(first, last);
-	return uniform_dist(e1);
-}
-
-int RandomBetweenN(int first, int last) {
-	// Seed with a real random value, if available
-	std::random_device r;
-
-	// Generate a normal distribution around that mean
-	std::seed_seq seed2{ r(), r(), r(), r(), r(), r(), r(), r() };
-	std::mt19937 e2(seed2);
-	std::normal_distribution<> normal_dist((first + last)/2.0, std::round(abs(first-last)/6.0));
-
-	return std::round(normal_dist(e2));
-}
-
-int RandomBetween(int first, int last) {
-	
-	return rand() % (abs(first-last)+1) + first;
-}
-
-void PrintDistribution(const map<int, int>& numbers) {
-	for (const auto &p : numbers) {
-		std::cout << std::fixed << std::setprecision(1) << std::setw(2)
-			<< p.first << ' ' << std::string(p.second, '*') << '\n';
-	}
-
-	return;
-}
 
 
 #if 1
@@ -58,6 +38,8 @@ int main()
 	const int iterations = 10'000;
 	const int divider = 25;
 
+	//Generate a map holding a uniform distribution.
+	//Uses first method to generate.
 	for (int n = 0; n < iterations; ++n) {
 		++numbersU[RandomBetweenU(first, last)];
 	}
@@ -65,6 +47,7 @@ int main()
 		p.second = p.second / divider;
 	}
 
+	//Generate a map holding a normal distribution.
 	for (int n = 0; n < iterations; ++n) {
 		++numbersN[RandomBetweenN(first, last)];
 	}
@@ -72,6 +55,8 @@ int main()
 		p.second = p.second / divider;
 	}
 
+	//Generate a map holding a uniform distribution.
+	//Uses second method (rand()) to generate.
 	for (int n = 0; n < iterations; ++n) {
 		++numbers[RandomBetween(first, last)];
 	}
@@ -79,6 +64,7 @@ int main()
 		p.second = p.second / divider;
 	}
 
+	//Print first uniform distribution.
 	std::cout << "Uniform distribution: [" << first << "," << last << "]" << "\n";
 	for (const auto &p : numbersU) {
 		if (p.second != 0) {
@@ -89,7 +75,9 @@ int main()
 
 	std::cout << '\n' << '\n';
 
-	std::cout << "Normal distribution: mean = " << (first + last) / 2.0 << ", std = " << std::round(abs(first - last) / 6.0) << "\n";
+	//Print normal distribution.
+	std::cout << "Normal distribution: mean = " << (first + last) / 2.0 << ", std = ";
+	std::cout << std::round(abs(first - last) / 6.0) << "\n";
 	for (const auto& p : numbersN) {
 		if (p.second != 0) {
 			std::cout << std::fixed << std::setprecision(1) << std::setw(2)
@@ -99,6 +87,7 @@ int main()
 
 	std::cout << '\n' << '\n';
 
+	//Print second uniform distribution.
 	std::cout << "Rand() distribution: [" << first << "," << last << "]" << "\n";
 	for (const auto& p : numbers) {
 		if (p.second != 0) {

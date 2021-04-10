@@ -16,32 +16,11 @@ using std::vector;
 
 int main()
 {
-	string user;
-	getline(cin, user);
-	istringstream iss(user);
-
-	int quant;
-
-	iss >> quant;
-
-	if (!iss) {
-		cout << "no" << endl;
-	}
-	else {
-		cout << quant << endl;
+	for (int i = 0; i < 10; i++) {
+		int p = 0;
 	}
 
-	
-	iss.clear();
-
-	iss >> quant;
-
-	if (!iss) {
-		cout << "no" << endl;
-	}
-	else {
-		cout << quant << endl;
-	}
+	int x = p;
 
 	return 0;
 }

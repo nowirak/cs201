@@ -1,5 +1,10 @@
+/**
+ filename:	funcs.cpp
+ author:	Nick Wirak
+ date:		4/09/2021
+ summary:	start
 
-
+*/
 
 #include <random>
 using std::mt19937;

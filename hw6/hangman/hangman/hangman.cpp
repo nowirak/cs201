@@ -1,5 +1,10 @@
-// random-map.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/**
+ filename:	hangman.cpp
+ author:	Nick Wirak
+ date:		4/09/2021
+ summary:   start
+
+*/
 
 #include <iostream>
 using std::cout;
