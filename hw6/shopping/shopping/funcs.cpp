@@ -1,3 +1,20 @@
+/**
+ filename:	funcs.cpp
+ author:	Nick Wirak
+ date:		4/09/2021
+ summary:   
+	PrintInventory:	Takes a map with strings representing store items for sale as keys
+					and a struct with item information as the second element of the pairs.
+					Prints formatted item and unit pricing information. For purposes 
+					of a shopper, so does not disclose store inventory of each item.
+
+	PrintCart:		Takes a map with strings representing store items for sale as keys
+					and a struct with item information as the second element of the pairs.
+					Prints formatted item and proposed sales volume of the item (amount 
+					to be purchased). Calculates and prints a sales total below cart 
+					printout.
+
+*/
 
 #include <iostream>
 using std::cout;
