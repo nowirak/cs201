@@ -16,11 +16,9 @@ using std::vector;
 
 int main()
 {
-	for (int i = 0; i < 10; i++) {
-		int p = 0;
-	}
+	int *i = nullptr;
 
-	int x = p;
+	cout << *i << endl;
 
 	return 0;
 }
