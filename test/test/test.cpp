@@ -16,9 +16,14 @@ using std::vector;
 
 int main()
 {
-	int *i = nullptr;
+	int i;
+	vector<int> test(10, 0);
 
-	cout << *i << endl;
+	for (i = 5; i < 10; i++) {
+		
+	}
+
+	cout << i;
 
 	return 0;
 }
