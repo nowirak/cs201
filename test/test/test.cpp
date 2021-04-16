@@ -16,19 +16,8 @@ using std::vector;
 
 int main()
 {
-	istringstream iss;
-	string test;
-	int t;
-
-	//iss.str();
-	iss >> t;
-	if (!iss) cout << "here" << endl;
-	iss.str("54");
-	iss.clear();
-	iss >> t;
-	if (!iss) cout << "there" << endl;
-	iss >> t;
-	if (!iss) cout << "any" << endl;
+	int t (15);
+	cout << std::to_string(15) << endl;
 
 	return 0;
 }
