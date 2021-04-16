@@ -16,14 +16,19 @@ using std::vector;
 
 int main()
 {
-	int i;
-	vector<int> test(10, 0);
+	istringstream iss;
+	string test;
+	int t;
 
-	for (i = 5; i < 10; i++) {
-		
-	}
-
-	cout << i;
+	//iss.str();
+	iss >> t;
+	if (!iss) cout << "here" << endl;
+	iss.str("54");
+	iss.clear();
+	iss >> t;
+	if (!iss) cout << "there" << endl;
+	iss >> t;
+	if (!iss) cout << "any" << endl;
 
 	return 0;
 }
