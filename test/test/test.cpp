@@ -16,8 +16,16 @@ using std::vector;
 
 int main()
 {
-	int t (15);
-	cout << std::to_string(15) << endl;
+	int t;
+	cin >> t;
+
+	int* ptr = new int[t];
+
+	delete[] ptr;
+
+	vector<int> tester(t);
+
+	cout << sizeof(size_t);
 
 	return 0;
 }
