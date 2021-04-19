@@ -14,18 +14,15 @@ using std::vector;
 
 
 
-int main()
+void main()
 {
-	int t;
-	cin >> t;
+	
+	string test("");
+	istringstream iss("");
 
-	int* ptr = new int[t];
+	iss >> test;
 
-	delete[] ptr;
+	if (!iss) cout << "shit" << endl;
 
-	vector<int> tester(t);
-
-	cout << sizeof(size_t);
-
-	return 0;
+	return;
 }
