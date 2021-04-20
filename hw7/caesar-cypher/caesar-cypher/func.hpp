@@ -1,13 +1,12 @@
 /**
- filename:	funcs.hpp
+ filename:	func.hpp
  author:	Nick Wirak
  date:		4/20/2021
  summary:
-	get_word:	Produces a psuedorandom choice of an element of a vector<string>. Assumes
-				the size of the vector is at least 1.
-
-	word_list:	A constant list of 30 words found using a random online generator. The
-				list might be used as a word source for word-guessing games.
+	caesarCypher:	Effectively implements a caesar cypher with a key of 1, or a single
+					cycle of a cypher with a key value greater than 1. Shifts ascii
+					characters 'A'-'Y' and 'a'-'y' up by 1, and 'Z' to 'A' and 'z' to 
+					'a' when found in a string.
 
 */
 
@@ -17,6 +16,7 @@ using std::string;
 #ifndef FUNC_HPP
 #define FUNC_HPP
 
+// Note: as an inline function, this could not be defined in a separate source file.
 inline void caesarCypher(string& text) {
 	for (size_t i = 0; i < text.size(); i++) {
 		if ((text.at(i) >= 65 && text.at(i) <= 89) ||
