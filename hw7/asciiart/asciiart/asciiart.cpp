@@ -2,12 +2,12 @@
  filename:	asciiart.cpp
  author:	Nick Wirak (adapted from Dr. Genetti work)
  date:		4/20/2021
- summary:   This program creates an ascii art representation of a ppm image and outputs
-            the representation to a text file named 'art.txt'. The image file should be
-            titled 'parrot.ppm', and the ppm should be formatted in ascii characters 
-            (as opposed to a binary representation). The program should accomodate
-            ppm files formatted in the usual way, and allow for '#' commenting on
-            any line desired.
+ summary:   This program creates an ascii art representation of a RGB ppm image and 
+            outputs the representation to a text file named 'art.txt'. The image file 
+            should be titled 'parrot.ppm', and the ppm should be formatted in ascii 
+            characters (as opposed to a binary representation). The program should 
+            accomodate ppm files formatted in the usual way, and allow for '#' 
+            commenting on any line desired.
 
 */
 

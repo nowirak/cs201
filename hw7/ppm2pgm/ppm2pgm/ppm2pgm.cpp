@@ -2,12 +2,12 @@
  filename:	ppm2pgm.cpp
  author:	Nick Wirak (adapted from Dr. Genetti work)
  date:		4/20/2021
- summary:   This program creates an ascii art representation of a ppm image and outputs
-            the representation to a text file named 'art.txt'. The image file should be
-            titled 'parrot.ppm', and the ppm should be formatted in ascii characters
-            (as opposed to a binary representation). The program should accomodate
-            ppm files formatted in the usual way, and allow for '#' commenting on
-            any line desired.
+ summary:   This program creates a greyscale ppm image file from a RGB ppm image and 
+            outputs the representation to a text file named 'pgmImage.txt'. The input 
+            image file should be titled 'parrot.ppm', and the ppm should be formatted 
+            in ascii characters (as opposed to a binary representation). The program 
+            should accomodate ppm files formatted in the usual way, and allow for '#' 
+            commenting on any line desired.
 
 */
 
@@ -114,7 +114,7 @@ int main()
     cout << "Image size: " << xres << " x " << yres << endl;
     cout << "Maxval = " << maxval << endl;
 
-    const int grayScaleVals = 32;   //set to a divisor of 256
+    const int grayScaleVals = 32;   // set to a divisor of 256
     const int grayDivisor = 256 / grayScaleVals;
     fout << xres << " " << yres << endl << grayScaleVals << endl;
 
