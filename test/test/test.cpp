@@ -11,18 +11,32 @@ using std::istringstream;
 using std::string;
 #include <vector>
 using std::vector;
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
 
 
 
-void main()
+int main()
 {
 	
-	string test("");
-	istringstream iss("");
+	string line;
+	ifstream infile("");
 
-	iss >> test;
+	line = "here.txt";	//file name here
 
-	if (!iss) cout << "shit" << endl;
+	infile.open(line);
+	if (!infile) { cout << "Error opening file." << endl; return 1; }
 
-	return;
+	while (true) {
+		getline(infile, line);
+		if (!infile) break;
+		cout << line << endl;
+	}
+	if (infile.eof()) {
+		infile.close();
+		return 0;
+	}
+	else { cout << "Error reading file." << endl; return 2; }
+
 }

@@ -1,7 +1,18 @@
-// what is our algorithm?
-// This will be wordy while writing/debugging
-// Agile - get it working for parrot.ppm
+/**
+ filename:	asciiart.cpp
+ author:	Nick Wirak (adapted from Dr. Genetti work)
+ date:		4/20/2021
+ summary:   This program creates an ascii art representation of a ppm image and outputs
+            the representation to a text file named 'art.txt'. The image file should be
+            titled 'parrot.ppm', and the ppm should be formatted in ascii characters 
+            (as opposed to a binary representation). The program should accomodate
+            ppm files formatted in the usual way, and allow for '#' commenting on
+            any line desired.
 
+*/
+
+// EXAMPLE PPM FORMATTING
+// EXAMPLE PPM FORMATTING
 /* This is the first few lines of parrot.ppm
 P3
 # CREATOR: GIMP PNM Filter Version 1.1
@@ -28,15 +39,21 @@ using std::ofstream;
 #include <sstream>
 using std::istringstream;
 
+// Checks a string for the '#' symbol which signifies commets in ppm files.
+// Removes the comment from the line.
 inline void dropComment(string &line) {
     std::string::iterator itr (std::find(line.begin(), line.end(), '#'));
     if (itr != line.end()) {
         cout << "Ignoring comment." << endl;
-        line.resize(itr - line.begin(), ' ');
+        line.resize(itr - line.begin(), ' ');   //note: resizing may be less efficient
+        //than inserting spaces?
     }
 }
 
-inline void getNextVal(int &val, istringstream& iline, ifstream &fin, string &line, const string& infile) {
+// Retrieves next integer value from file. Checks for failure to read from file.
+// Intregrally drops comments as part of its operation.
+inline void getNextVal(int &val, istringstream& iline, ifstream &fin, 
+    string &line, const string& infile) {
     while (true) {
         iline >> val;
         if (!iline) {
@@ -83,7 +100,7 @@ int main()
         cout << "PPM (text)" << endl;
     }
 
-    // get file parameters
+    // get file parameters (x-resolution, y-resolution, max-value)
     istringstream iline (' ');
     int xres, yres, maxval;
     getNextVal(xres, iline, fin, line, infile);
@@ -96,7 +113,7 @@ int main()
     ofstream fout(outfile);
     if (!fout) cout << "Error creating " << outfile << endl;
 
-    // loop for xres*yres
+    // Loop for xres*yres pixels. Converts RGB -> Grey -> Ascii.
     int r, g, b, iy;
     double y;
     char values[] = "@%%##ss*+==--:: ";    // " ::--==+*ss##%%@"
