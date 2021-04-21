@@ -19,24 +19,13 @@ using std::ofstream;
 
 int main()
 {
-	
-	string line;
-	ifstream infile("");
 
-	line = "here.txt";	//file name here
+    int* ptr = (int*) 1000;
 
-	infile.open(line);
-	if (!infile) { cout << "Error opening file." << endl; return 1; }
+    cout << (int) ptr << endl;
+    if (!ptr) cout << "not" << endl;
+    cout << *ptr << endl;
 
-	while (true) {
-		getline(infile, line);
-		if (!infile) break;
-		cout << line << endl;
-	}
-	if (infile.eof()) {
-		infile.close();
-		return 0;
-	}
-	else { cout << "Error reading file." << endl; return 2; }
+    return 0;
 
 }
