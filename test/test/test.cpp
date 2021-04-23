@@ -20,12 +20,11 @@ using std::ofstream;
 int main()
 {
 
-    int* ptr = (int*) 1000;
+    int in;
+    cin >> in;
+    int* ptr = new int [in];
 
-    cout << (int) ptr << endl;
-    if (!ptr) cout << "not" << endl;
-    cout << *ptr << endl;
+    delete[] ptr;
 
     return 0;
-
 }
