@@ -5,21 +5,21 @@
 using std::cout;
 using std::endl;
 
-void idFlags(unsigned int flag) {
-    if ((flag & 1) == 1) {
-        cout << "flagA set" << endl;
-    }
-    if ((flag & 2) == 2) {
-        cout << "flagB set" << endl;
-    }
-    if ((flag & 4) == 4) {
-        cout << "flagC set" << endl;
-    }
-}
-
 unsigned int flagA = 1;
 unsigned int flagB = 2;
 unsigned int flagC = 4;
+
+void idFlags(unsigned int flag) {
+    if ((flag & flagA) != 0) {
+        cout << "flagA set" << endl;
+    }
+    if ((flag & flagB) != 0) {
+        cout << "flagB set" << endl;
+    }
+    if ((flag & flagC) != 0) {
+        cout << "flagC set" << endl;
+    }
+}
 
 int main()
 {
