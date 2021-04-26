@@ -19,9 +19,10 @@ using std::ofstream;
 class RGBImage {
 public:
 	RGBImage() : _xres(0), _yres(0), _maxval(0) { cout << "DEFAULT" << endl; }
-	RGBImage(string fname);
+	RGBImage(string infile);
 	~RGBImage() { cout << "DESTRUCTOR" << endl; }
 	void toASCII();
+	void writePGMFile(string fname);
 private:
 	int _xres, _yres, _maxval;
 	vector<int> _image;

@@ -20,11 +20,11 @@ using std::ofstream;
 int main()
 {
 
-    int test = 0;
-
-    for (int i = 0; i < test; i++) {
-        cout << "entered" << endl;
-    }
+    string test("this");
+    string* ptr = &test;
+    cout << ptr << endl;
+    test = "thieh siejfapidj aipejf iaoej fajweio jaioe fjapoj fioajo jaeo fjaopweja";
+    cout << ptr << endl;
 
     return 0;
 }

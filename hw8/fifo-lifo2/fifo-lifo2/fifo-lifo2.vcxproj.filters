@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ppm2pgm.cpp">
+    <ClCompile Include="fifo-lifo2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RGBImage.cpp">
+    <ClCompile Include="funcs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RGBImage.hpp">
+    <ClInclude Include="funcs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

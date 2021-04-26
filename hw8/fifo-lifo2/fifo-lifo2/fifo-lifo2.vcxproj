@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2ca8f655-3e16-4847-b2c3-4eb99ddc3af5}</ProjectGuid>
-    <RootNamespace>ppm2pgm</RootNamespace>
+    <ProjectGuid>{6cb4b59b-12a3-472f-bc33-06b87ea95f97}</ProjectGuid>
+    <RootNamespace>fifolifo2</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,11 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ppm2pgm.cpp" />
-    <ClCompile Include="RGBImage.cpp" />
+    <ClCompile Include="fifo-lifo2.cpp" />
+    <ClCompile Include="funcs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RGBImage.hpp" />
+    <ClInclude Include="funcs.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
