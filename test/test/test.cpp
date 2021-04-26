@@ -20,11 +20,11 @@ using std::ofstream;
 int main()
 {
 
-    int in;
-    cin >> in;
-    int* ptr = new int [in];
+    int test = 0;
 
-    delete[] ptr;
+    for (int i = 0; i < test; i++) {
+        cout << "entered" << endl;
+    }
 
     return 0;
 }

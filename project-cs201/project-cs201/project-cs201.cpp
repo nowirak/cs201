@@ -2,7 +2,7 @@
 //
 
 /**
-Version 1
+Version 2
 */
 
 #include <iostream>
@@ -17,28 +17,28 @@ int main()
     LinkedList test;
 
     test.frontAdd("test1 here.");
-
     test.frontAdd("test2 here.");
-
     test.frontAdd("test3 here.");
-
     test.frontAdd("test4 here.");
 
-    cout << test.size() << endl;
-
+    cout << "Size: " << test.size() << endl;
+    cout << "Items:" << endl;
     test.print();
+    cout << endl;
 
     test.backRemove();
 
-    cout << test.size() << endl;
-
+    cout << "Size: " << test.size() << endl;
+    cout << "Items:" << endl;
     test.print();
+    cout << endl;
 
     test.frontRemove();
 
-    cout << test.size() << endl;
-
+    cout << "Size: " << test.size() << endl;
+    cout << "Items:" << endl;
     test.print();
+    cout << endl;
 
     return 0;
 }
