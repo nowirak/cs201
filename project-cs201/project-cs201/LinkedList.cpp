@@ -33,11 +33,10 @@ LinkedList::LinkedList(size_t size) {
 
 LinkedList::~LinkedList() {
 	if (_size != 0) {
-		_current = _back->ptrBack;
 		for (int i = 0; i < _size; i++) {
+			_current = _front;
 			_front = _current->ptrBack;
 			delete _current;
-			_current = _front;
 		}
 	}
 }
