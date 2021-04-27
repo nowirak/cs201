@@ -1,8 +1,11 @@
-// project-cs201.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 /**
-Version 3
+ filename:	project-cs201.cpp
+ author:	Nick Wirak (adapted from Dr. Genetti work)
+ date:		4/27/2021
+ summary:   This program is intended as a simple test of the accompanying LinkedList
+            class. Not all the member functions are tested within, but the code can
+            be adjusted to test according to interest.
+
 */
 
 #include <iostream>
@@ -17,7 +20,7 @@ int main()
     LinkedList test;
 
     test.frontAdd("test1 here.");
-    test.frontAdd("test2 here.");
+    test.backAdd("test2 here.");
     test.frontAdd("test3 here.");
     test.frontAdd("test4 here.");
 
