@@ -1,7 +1,7 @@
 /**
  filename:	asciiart.cpp
  author:	Nick Wirak (adapted from Dr. Genetti work)
- date:		4/20/2021
+ date:		4/26/2021
  summary:   This program creates an ascii art representation of a RGB ppm image and
             outputs the representation to a text file named 'art.txt'. The image file
             should be titled 'parrot.ppm', and the ppm should be formatted in ascii
@@ -11,7 +11,7 @@
 
 */
 
-// EXAMPLE PPM FORMATTING
+
 // EXAMPLE PPM FORMATTING
 /* This is the first few lines of parrot.ppm
 P3
@@ -25,6 +25,7 @@ P3
 11
 8
 */
+
 
 #include <iostream>
 using std::cout;

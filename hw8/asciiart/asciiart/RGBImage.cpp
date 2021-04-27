@@ -1,3 +1,16 @@
+/**
+ filename:	RGBImage.cpp
+ author:	Nick Wirak (adapted from Dr. Genetti work)
+ date:		4/26/2021
+ summary:
+    toASCII:	Converts ppm file to an ASCII art representation, and prints
+                the output to a file ("art.txt").
+    dropComment:Drops any comment found in a line of a ppm file formatted in
+                ASCII characters.
+    getNextVal: Gets the next integer value of a ppm file formatted in ASCII 
+                characters.
+
+*/
 
 #include <string>
 using std::string;
@@ -7,6 +20,8 @@ using std::ofstream;
 
 #include "RGBImage.hpp"
 
+// Checks a string for the '#' symbol which signifies commets in ppm files.
+// Removes the comment from the line.
 void RGBImage::dropComment(string& line) {
     std::string::iterator itr(std::find(line.begin(), line.end(), '#'));
     if (itr != line.end()) {
@@ -16,6 +31,8 @@ void RGBImage::dropComment(string& line) {
     }
 }
 
+// Retrieves next integer value from file. Checks for failure to read from file.
+// Intregrally drops comments as part of its operation.
 void RGBImage::getNextVal(int& val, istringstream& iline, ifstream& fin,
     string& line, const string& infile) {
     while (true) {

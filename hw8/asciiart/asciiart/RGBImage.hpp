@@ -1,3 +1,15 @@
+/**
+ filename:	RGBImage.hpp
+ author:	Nick Wirak (adapted from Dr. Genetti work)
+ date:		4/26/2021
+ summary:	Class to read in and operate on ppm files formatted in ASCII characters.
+			Initialize an object with a ppm file name. Use member function toASCII 
+			to print to a file an ASCII art representation.
+
+	toASCII:	Converts ppm file to an ASCII art representation, and prints
+				the output to a file ("art.txt").
+
+*/
 
 #ifndef RGBIMAGE_HPP
 #define RGBIMAGE_HPP
