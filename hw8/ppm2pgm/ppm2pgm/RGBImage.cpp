@@ -1,3 +1,18 @@
+/**
+ filename:	RGBImage.cpp
+ author:	Nick Wirak (adapted from Dr. Genetti work)
+ date:		4/26/2021
+ summary:	Class to read in and operate on ppm files formatted in ASCII characters.
+            Initialize an object with a ppm file name. Use member function toASCII
+            to print an ASCII art representation to a file. Use member function
+            ppm2pgm to print a greyscale reproduction of the image to a file.
+
+    toASCII:	Converts ppm file to an ASCII art representation, and prints
+                the output to a file ("art.txt").
+    ppm2pgm:	Converts ppm file to a greyscale image reproduction, and prints the
+                output to a file. Output file is in ppm ASCII format.
+
+*/
 
 #include <string>
 using std::string;
@@ -7,6 +22,8 @@ using std::ofstream;
 
 #include "RGBImage.hpp"
 
+// Checks a string for the '#' symbol which signifies commets in ppm files.
+// Removes the comment from the line.
 void RGBImage::dropComment(string& line) {
     std::string::iterator itr(std::find(line.begin(), line.end(), '#'));
     if (itr != line.end()) {
@@ -16,6 +33,8 @@ void RGBImage::dropComment(string& line) {
     }
 }
 
+// Retrieves next integer value from file. Checks for failure to read from file.
+// Intregrally drops comments as part of its operation.
 void RGBImage::getNextVal(int& val, istringstream& iline, ifstream& fin,
     string& line, const string& infile) {
     while (true) {
@@ -115,6 +134,7 @@ void RGBImage::toASCII() {
     }
 }
 
+// Converts RGB -> Grey -> Ascii.
 void RGBImage::writePGMFile(string fname) {
     string outfile = fname;
     ofstream fout(outfile);
