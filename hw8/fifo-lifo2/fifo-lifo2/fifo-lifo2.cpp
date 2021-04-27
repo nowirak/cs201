@@ -1,7 +1,7 @@
 /**
- filename:	fifo_lifo_test.cpp
+ filename:	fifo-lifo2.cpp
  author:	Nick Wirak
- date:		2/23/2021
+ date:		4/26/2021
  summary:	The user is given a vector as a container to push and pop strings
             from. The user can switch between fifo and lifo modes at any time,
             and this will affect which vector element is popped. The user can print
@@ -32,7 +32,7 @@ int main()
     cout << "   exit:          Quit the program." << endl << endl;
 
     string input = "start";
-    vector<string> container(0);
+    Container container;
     bool fifoLifo = true;       // false = fifo mode , true = lifo mode
 
     do {
@@ -53,35 +53,35 @@ int main()
         else if (input.size() >= 7 && input.substr(0, 6) == "push \"" &&
             input.back() == '"') {
             if (fifoLifo == false) {
-                FifoPush(container, input.substr(6, input.size() - 7));
+                container.fifoPush(input.substr(6, input.size() - 7));
             }
             else {
-                LifoPush(container, input.substr(6, input.size() - 7));
+                container.lifoPush(input.substr(6, input.size() - 7));
             }
             cout << "*data pushed" << endl;
             continue;
         }
         else if (input == "pop") {
-            if (IsContainerEmpty(container)) {
+            if (container.isContainerEmpty()) {
                 cout << "***Error. The container is empty." << endl;
             }
             else {
                 if (fifoLifo == false) {
-                    FifoPop(container, input);
+                    container.fifoPop(input);
                 }
                 else {
-                    LifoPop(container, input);
+                    container.lifoPop(input);
                 }
                 cout << "data popped" << endl;
             }
             continue;
         }
         else if (input == "print") {
-            if (IsContainerEmpty(container)) {
+            if (container.isContainerEmpty()) {
                 cout << "***The container is empty." << endl;
             }
             else {
-                PrintContainer(container);
+                container.printContainer();
                 cout << endl;
             }
             continue;

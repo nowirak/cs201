@@ -1,7 +1,7 @@
 /**
  filename:	funcs.cpp
  author:	Nick Wirak
- date:		2/23/2021
+ date:		4/26/2021
  summary:
 	FifoPush:			Takes a string and container. Pushes string to container.
 	FifoPop:			Takes a string and container. Pops the item from the container
@@ -33,9 +33,27 @@
 #include <iostream>
 using std::cout;
 using std::endl;
+#include <string>
+using std::string;
+#include <vector>
+using std::vector;
 
-void FifoPush(vector<string>& container, const string& item) {
-	container.push_back(item);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////   CONSTRUCTORS / DESTRUCTORS   ////
+Container::Container() : _container(0) {}
+Container::Container(const vector<string>& input) : _container(input) {}
+Container::~Container() {}
+
+
+////   MEMBER FUNCTIONS   ////
+void Container::fifoPush(const string& item) {
+	_container.push_back(item);
 	return;
 }
 
@@ -44,49 +62,58 @@ void FifoPush(vector<string>& container, const string& item) {
 //size. The downside is every vector element has to be overwritten
 //by another. Fifopops take place at the front of a vector, unlike
 //the other operations here.
-void FifoPop(vector<string>& container, string& item) {
-	item = container.at(0);
-	for (int i = 0; i < container.size() - 1; i++) {
-		container.at(i) = container.at(i + 1);
+void Container::fifoPop(string& item) {
+	item = _container.at(0);
+	for (int i = 0; i < _container.size() - 1; i++) {
+		_container.at(i) = _container.at(i + 1);
 
 	}
-	container.resize(container.size() - 1);
-}
-
-void LifoPush(vector<string>& container, const string& item) {
-	container.push_back(item);
+	_container.resize(_container.size() - 1);
 	return;
 }
 
-void LifoPop(vector<string>& container, string& item) {
-	item = container.back();
-	container.pop_back();
+void Container::lifoPush(const string& item) {
+	_container.push_back(item);
 	return;
 }
 
-bool IsContainerEmpty(const vector<string>& container) {
-	return container.size() == 0;
+void Container::lifoPop(string& item) {
+	item = _container.back();
+	_container.pop_back();
+	return;
 }
 
-void PrintContainer(const vector<string>& container) {
-	for (int i = 0; i < container.size() - 1; i++) {
-		cout << "   " << container.at(i) << endl;
-	}
-	cout << "   " << container.at(container.size() - 1);
+bool Container::isContainerEmpty() {
+	return _container.size() == 0;
 }
+
+void Container::printContainer() {
+	for (int i = 0; i < _container.size() - 1; i++) {
+		cout << "   " << _container.at(i) << endl;
+	}
+	cout << "   " << _container.at(_container.size() - 1);
+	return;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 bool TestFifo() {
 	vector<string> testPushSeq{ "push \"A\"", "push \"B\"", "push \"C\"", "push \"D\"" };
 	vector<string> testPopSeq{ "pop", "pop", "pop", "pop" };
 	vector<string> correctReturn{ "A", "B", "C", "D" };
-	vector<string> storage;
+	Container storage;
 	vector<string> returnSeq;
 
 	//Read instruction and push string if appropriate.
 	for (int i = 0; i < 4; i++) {
 		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" &&
 			testPushSeq.at(i).back() == '"') {
-			FifoPush(storage, testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
+			storage.fifoPush(testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
 		}
 		else {
 			return 0;
@@ -97,7 +124,7 @@ bool TestFifo() {
 	for (int i = 0; i < 4; i++) {
 		if (testPopSeq.at(i) == "pop") {
 			returnSeq.resize(i + 1);
-			FifoPop(storage, returnSeq.at(i));
+			storage.fifoPop(returnSeq.at(i));
 		}
 		else {
 			return 0;
@@ -119,14 +146,14 @@ bool TestLifo() {
 	vector<string> testPushSeq{ "push \"A\"", "push \"B\"", "push \"C\"", "push \"D\"" };
 	vector<string> testPopSeq{ "pop", "pop", "pop", "pop" };
 	vector<string> correctReturn{ "D", "C", "B", "A" };
-	vector<string> storage;
+	Container storage;
 	vector<string> returnSeq;
 
 	//Read instruction and push string if appropriate.
 	for (int i = 0; i < 4; i++) {
 		if (testPushSeq.at(i).size() >= 7 && testPushSeq.at(i).substr(0, 6) == "push \"" &&
 			testPushSeq.at(i).back() == '"') {
-			LifoPush(storage, testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
+			storage.lifoPush(testPushSeq.at(i).substr(6, testPushSeq.at(i).size() - 7));
 		}
 		else {
 			return 0;
@@ -137,7 +164,7 @@ bool TestLifo() {
 	for (int i = 0; i < 4; i++) {
 		if (testPopSeq.at(i) == "pop") {
 			returnSeq.resize(i + 1);
-			LifoPop(storage, returnSeq.at(i));
+			storage.lifoPop(returnSeq.at(i));
 		}
 		else {
 			return 0;

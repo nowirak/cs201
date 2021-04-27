@@ -1,7 +1,7 @@
 /**
  filename:	funcs.hpp
  author:	Nick Wirak
- date:		2/23/2021
+ date:		4/26/2021
  summary:
 	FifoPush:			Takes a string and container. Pushes string to container.
 	FifoPop:			Takes a string and container. Pops the item from the container
@@ -37,17 +37,28 @@
 using std::string;
 using std::vector;
 
-void FifoPush(vector<string>& container, const string& item);
+class Container {
+public:
+	Container();
+	Container(const vector<string>& input);
+	~Container();
 
-void FifoPop(vector<string>& container, string& item);
+	void fifoPush(const string& item);
+	void fifoPop(string& item);
+	void lifoPush(const string& item);
+	void lifoPop(string& item);
+	bool isContainerEmpty();
+	void printContainer();
+private:
+	vector<string> _container;
+};
 
-void LifoPush(vector<string>& container, const string& item);
 
-void LifoPop(vector<string>& container, string& item);
 
-bool IsContainerEmpty(const vector<string>& container);
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-void PrintContainer(const vector<string>& container);
+
 
 bool TestFifo();
 
